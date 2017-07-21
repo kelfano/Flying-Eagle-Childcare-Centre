@@ -22,3 +22,17 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+//Responsive design
+
+@mixin mobile {
+  @media screen and (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin desktop{
+  @media screen and (min-width: $desktop-min-width) and (max-width: $desktop-max-width){
+    @content;
+  }
+}

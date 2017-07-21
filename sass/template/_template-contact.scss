@@ -1,0 +1,175 @@
+.page-template-template-contact{
+  height: 100vh;
+  background: #fff;
+}
+
+//header
+.page-template-template-contact{
+  .site-header-wrapper{
+    display: flex;
+
+    .flying-eagle-logo{
+      flex-basis: 25%;
+
+      @include desktop{
+        flex-basis: 23%;
+      }
+
+      img{
+        width: 150px;
+        height: 125px;
+        margin: 1rem .5rem 1rem 1rem;
+      }
+    }
+  }
+}
+
+.page-template-template-contact{
+  .site-header-wrapper{
+    .flying-eagle-text{
+      flex-basis: 50%;
+
+      @include desktop{
+        flex-basis: 25%;
+      }
+
+      p{
+        font-size: 2.5rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.page-template-template-contact{
+  .site-header-wrapper{
+    .hamburger-menu{
+      padding-top: 1rem;
+
+      button.hamburger-closed{
+        background-color: #fff;
+        border: none;
+        box-shadow: none;
+        text-shadow: none;
+        font-size: 3rem;
+        color: #000;
+
+        @include desktop{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+//Content
+.page-template-template-contact{
+  .site-content{
+   padding-left: 1rem;
+   padding-right: 1rem;
+  }
+}
+
+.page-template-template-contact{
+  .contact-info{
+    width: 50%;
+  }
+
+  .contact-info-form{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+
+    form{
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 1rem;
+      height: 25rem;
+
+      span{
+        font-size:25px;
+        display: block;
+      }
+
+      span.subject{
+        padding-right: 2rem;
+        display: block;
+      }
+
+      span.message{
+        padding-right: 0.8rem;
+        display: block;
+      }
+      
+      input{
+        width: 100%;
+        border-radius: 10px;
+        background: #CECECE;
+      }
+
+      input[name= message]{
+        height: 7rem;
+        margin-top: .5rem;
+      }
+    }
+      
+  }
+}
+
+.page-template-template-contact{
+  .form-submit{
+    display: flex;
+    justify-content: center;
+
+    button{
+      width: 150px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: red;
+      text-transform: uppercase;
+      color: white;
+    }
+  }
+}
+
+
+//footer
+.page-template-template-contact{
+  .footer-wrapper{
+    background-color: #424141;
+    height: 150px;
+    margin-top: 5rem;
+
+    .footer-wrapper-contact{
+      p{
+        color: #fff;
+        font-size: 25px;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+
+     .footer-wrapper-website{
+      p{
+        color: #fff;
+        font-size: 25px;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+
+      .footer-wrapper-address{
+      p{
+        color: #fff;
+        font-size: 25px;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+  }
+}

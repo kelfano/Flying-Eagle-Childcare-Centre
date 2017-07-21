@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme
+ * The header for Puiying-Childcare theme
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
@@ -18,13 +18,12 @@
 
 <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'puiying-childcare' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
+		<!--<div class="site-branding">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) : ?>
@@ -39,9 +38,9 @@
 				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 			<?php
 			endif; ?>
-		</div><!-- .site-branding -->
+		</div> .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
+			<!--<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'puiying-childcare' ); ?></button>
 			<?php
 				wp_nav_menu( array(
@@ -49,7 +48,24 @@
 					'menu_id'        => 'primary-menu',
 				) );
 			?>
-		</nav><!-- #site-navigation -->
+		</nav> #site-navigation -->
+
+
+		<div class = "site-header-wrapper">
+			<div class = "flying-eagle-logo">
+				<img src="<?php echo get_template_directory_uri();?>/assets/logos/flying_eagle_logo.jpg">
+			</div>
+
+			<div class = "flying-eagle-text">
+				<p> Flying Eagle Children Center</p>
+			</div>
+
+			<div class = "hamburger-menu">
+				<button class="hamburger-closed"> &#9776;</button>
+			</div>
+		</div>
+
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

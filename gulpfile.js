@@ -1,35 +1,29 @@
-var gulp = require('gulp'),
-    plumber = require('gulp-plumber'),
-    notify = require('gulp-notify'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    autoprefixer = require('gulp-autoprefixer'),
-    rename = require('gulp-rename'),
-    cssnano = require('gulp-cssnano'),
-    uglify = require('gulp-uglify'),
-    eslint = require('gulp-eslint'),
-    browserSync = require('browser-sync');
 
-var plumberErrorHandler = {
-    errorHandler: notify.onError({
-        title: 'Gulp',
-        message: 'Error: <%= error.message %>'
-    })
+var gulp = require('gulp');
+var babel = require('gulp-babel');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var browserSync = require('browser-sync');
+var rename = require('gulp-rename');
+var cssnano = require('gulp-cssnano');
+var uglify = require('gulp-uglify');
+var eslint = require('gulp-eslint');
+var sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded'
 };
 
 gulp.task('sass', function () {
-    gulp.src('./sass/style.scss')
-        .pipe(plumber(plumberErrorHandler))
-        .pipe(sourcemaps.init())
-        .pipe(sass())
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions']
-        }))
-        .pipe(gulp.dest('./'))
-        .pipe(cssnano())
-        .pipe(rename('style.min.css'))
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./build/css'));
+  return gulp
+    .src("./sass/style.scss")
+    .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(cssnano())
+    .pipe(rename('style.min.css'))
+    .pipe(gulp.dest('./build/css'));
 });
 
 gulp.task('scripts', ['lint'], function () {
@@ -48,6 +42,8 @@ gulp.task('lint', function () {
         .pipe(eslint.failAfterError());
 });
 
+
+//Added browserSync
 gulp.task('browser-sync', function () {
     var files = [
         './build/css/*.css',
@@ -57,15 +53,15 @@ gulp.task('browser-sync', function () {
     ];
 
     browserSync.init(files, {
-        proxy: 'localhost/puiying-childcare',
+        proxy: 'localhost:80/puiying-childcare',
     });
 
     gulp.watch(files).on('change', browserSync.reload);
 });
 
-gulp.task('watch', function () {
-    gulp.watch('./sass/*.scss', ['sass']);
-    gulp.watch('./js/*.js', ['scripts']);
-});
+gulp.task('watch', function(){
+  gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('./js/**/*.js', ['scripts']);
+})
 
-gulp.task('default', ['watch', 'browser-sync']);
+gulp.task('default', ['watch','browser-sync']);

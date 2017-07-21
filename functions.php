@@ -112,12 +112,14 @@ function puiying_childcare_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'puiying_childcare_widgets_init' );
-
+	
 /**
  * Enqueue scripts and styles.
  */
 function puiying_childcare_scripts() {
-	wp_enqueue_style( 'puiying-childcare-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'puiying-childcare-style', get_template_directory_uri() . '/build/css/style.min.css');
+
+	wp_enqueue_style( 'puiying-childcare-style', get_template_directory_uri() . '/build/js/faq.min.js', array('jquery'), null, true);
 
 	wp_enqueue_script( 'puiying-childcare-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
